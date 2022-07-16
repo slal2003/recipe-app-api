@@ -1,5 +1,5 @@
 """
-Serializers for the user APIU View.
+Serializers for the user API View.
 """
 from dataclasses import fields
 from tkinter.ttk import Style

@@ -1,20 +1,15 @@
 """
 Tests for models.
 """
-from decimal import Decimal
-from turtle import title
-
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-
-from core import models
 
 
 class ModelTests(TestCase):
     """Test models."""
 
     def test_create_user_with_email_successful(self):
-        """Test creating a user with an email is successfull"""
+        """Test creating a user with an email is successful"""
         email = 'test@example.com'
         password = 'testpass123'
         user = get_user_model().objects.create_user(
@@ -38,7 +33,7 @@ class ModelTests(TestCase):
             self.assertEqual(user.email, expected)
 
     def test_new_user_without_email_raises_error(self):
-        """Test that creating a user without an email rases a ValueError."""
+        """Test that creating a user without an email raises a ValueError."""
         with self.assertRaises(ValueError):
             get_user_model().objects.create_user('', 'test123')
 
