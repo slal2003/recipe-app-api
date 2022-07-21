@@ -67,7 +67,6 @@ class PrivateRecipeAPITests(TestCase):
 
         recipes = recipes.objects.all().order_by('-id')
         serializer = RecipeSerializer(recipes, many=True)
-
         self.assertEqual(res.status, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
 
