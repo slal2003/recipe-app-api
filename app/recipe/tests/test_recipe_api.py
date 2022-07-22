@@ -2,7 +2,6 @@
 Tests for recipe APIs.
 """
 from decimal import Decimal
-from nturl2path import url2pathname
 
 from django.contrib.auth import get_user_model
 from django.test import TestCase
@@ -17,7 +16,6 @@ from recipe.serializers import (
     RecipeSerializer,
     RecipeDetailSerializer,
 )
-
 
 
 RECIPES_URL = reverse('recipe:recipe-list')
@@ -99,7 +97,7 @@ class PrivateRecipeApiTests(TestCase):
         """Test get recipe detail."""
         recipe = create_recipe(user=self.user)
 
-        url = detail_url(recipe_id)
+        url = detail_url(recipe.id)
         res = self.client.get(url)
 
         serializer = RecipeDetailSerializer(recipe)
